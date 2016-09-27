@@ -1,6 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">@color/white</color>
+    <color name="colorPrimaryDark">@android:color/darker_gray</color>
+    <!--<color name="colorPrimaryDark">@color/white</color>-->
+    <!--<color name="colorAccent">@android:color/holo_orange_dark</color>-->
+    <!--<color name="colorAccentFallback">#FFB74D</color>-->
+
+    <color name="colorAccent">#333333</color>
+    <color name="colorAccentFallback">#555555</color>
+
+    <color name="gray">#999999</color>
+    <color name="gray_light">#F5F5F5</color>
+    <color name="gray_divider">#EEEEEE</color>
+    <color name="gray_icon">#AEAEAE</color>
+    <color name="white_divider">#1EFFFFFF</color>
+    
+    <color name="brown">#795548</color>
+
+    <color name="yellow">#FFEB3B</color>
+    <color name="yellow_primary">#FFEE58</color>
+    <color name="yellow_secondary">#FFF176</color>
+
+    <color name="red">#F44336</color>
+    <color name="red_primary">#EF5350</color>
+    <color name="red_light">#E57373</color>
+
+
+    <color name="white">#FFFFFFFF</color>
+    <color name="white_half">#F6F6F6</color>
+    <color name="white_primary">#EEEEEE</color>
+    <color name="white_secondary">#aaFFFFFF</color>
+
+    <color name="black_transparency">#CC000000</color>
+    <color name="black_transparency_media">#66000000</color>
+
+    <color name="transparency">#00000000</color>
+
+    <color name="black">#000000</color>
+    <color name="black_primary">#DE000000</color>
+    <color name="black_secondary">#8D000000</color>
+    <color name="black_hint_and_disable">#45000000</color>
+
+
+    <color name="blue">#2196F3</color>
+    <color name="blue_primary">#42A5F5</color>
+
+    <color name="teal_normal">#009688</color>
+    <color name="teal_primary">#26A69A</color>
+    <color name="teal_light">#4DB6AC</color>
 </resources>
