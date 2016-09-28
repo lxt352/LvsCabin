@@ -1,16 +1,16 @@
 <tabs>
     <tab
-        id="@+id/tab_favorites"
+        id="@+id/tab_music"
         icon="@drawable/ic_container_music_white"
         barColorWhenSelected="@color/brown"
         title="Music" />
     <tab
-        id="@+id/tab_nearby"
+        id="@+id/tab_video"
         icon="@drawable/ic_vec_video_white"
         barColorWhenSelected="@color/blue"
         title="Videos" />
     <tab
-        id="@+id/tab_friends"
+        id="@+id/tab_news"
         icon="@drawable/ic_vec_news_white"
         barColorWhenSelected="@color/teal_normal"
         title="News" />
