@@ -22,13 +22,13 @@ public class MainActivity extends BaseActivity {
         public void onTabSelected(@IdRes int tabId) {
             switch (tabId) {
                 case R.id.tab_music:
-
+                    setToolbarColor(R.color.brown);
                     break;
                 case R.id.tab_video:
-
+                    setToolbarColor(R.color.blue_primary);
                     break;
                 case R.id.tab_news:
-
+                    setToolbarColor(R.color.teal_normal);
                     break;
             }
         }
@@ -38,9 +38,13 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         ButterKnife.bind(this);
         mBottomBar.setOnTabSelectListener(mOnTabSelectListener);
+
         bindToolbar();
-        setToolbarTitle("", Gravity.CENTER);
+        setToolbarColor(R.color.brown);
+        setToolbarTitleColor(R.color.white);
+        setToolbarTitle("Music", Gravity.CENTER);
     }
 }

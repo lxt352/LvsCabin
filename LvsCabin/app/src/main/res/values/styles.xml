@@ -9,4 +9,5 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="TextAppearance.App.Title" parent="TextAppearance.AppCompat.Title"/>
 </resources>
