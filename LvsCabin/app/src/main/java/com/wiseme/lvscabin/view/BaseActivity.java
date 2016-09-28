@@ -1,8 +1,11 @@
 package com.wiseme.lvscabin.view;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
@@ -18,6 +21,8 @@ import com.wiseme.lvscabin.utils.ValueUtils;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
+    public static final String TAG_FRAGMENT = "contain_pane";
+
     private Toolbar mToolbar;
 
     private TextView mTitleView;
@@ -28,6 +33,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mTitleView = new TextView(this);
+        insertFragment(savedInstanceState);
     }
 
     /**
@@ -37,7 +43,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         if (mToolbar == null)
             return;
-        mTitleView = new TextView(this);
+        mToolbar.removeAllViews();
         mToolbar.addView(mTitleView);
     }
 
@@ -58,6 +64,8 @@ public abstract class BaseActivity extends AppCompatActivity {
             return;
         if (mTitleView != null)
             mToolbar.removeView(mTitleView);
+        if (mTitleView == null)
+            mTitleView = new TextView(this);
         mTitleView.setSingleLine();
         mTitleView.setEllipsize(TextUtils.TruncateAt.END);
         mTitleView.setText(TextUtils.isEmpty(title) ? "" : title);
@@ -78,4 +86,28 @@ public abstract class BaseActivity extends AppCompatActivity {
         mToolbar.removeView(mTitleView);
         mToolbar.addView(mTitleView);
     }
+
+    private void insertFragment(Bundle savedInstanceState) {
+        Fragment fragment;
+        if (savedInstanceState == null) {
+            fragment = onCreateFragment();
+            Bundle arguments = new Bundle();
+            Intent intent = getIntent();
+            if (intent == null)
+                return;
+            Uri uri = intent.getData();
+            String KEY_URI = "_uri";
+            if (uri != null)
+                arguments.putParcelable(KEY_URI, uri);
+            Bundle extras = intent.getExtras();
+            if (extras != null)
+                arguments.putAll(extras);
+            if (fragment != null)
+                fragment.setArguments(arguments);
+        } else {
+            fragment = getSupportFragmentManager().findFragmentByTag(TAG_FRAGMENT);
+        }
+    }
+
+    protected abstract Fragment onCreateFragment();
 }

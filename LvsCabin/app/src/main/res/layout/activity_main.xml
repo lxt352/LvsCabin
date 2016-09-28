@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <FrameLayout
-        android:id="@+id/root_container"
+    <com.wiseme.lvscabin.view.widget.ViewPager
+        android:id="@+id/viewpager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-    <include layout="@layout/include_appbar"/>
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
     <com.roughike.bottombar.BottomBar
         android:id="@+id/bottombar"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_alignParentBottom="true"
-        app:bb_inActiveTabColor="@color/white"
+        android:layout_height="?attr/actionBarSize"
         app:bb_inActiveTabAlpha="0.618"
+        app:bb_inActiveTabColor="@color/white"
         app:bb_showShadow="false"
         app:bb_tabXmlResource="@xml/bottombar_tabs" />
-</RelativeLayout>
+</LinearLayout>
