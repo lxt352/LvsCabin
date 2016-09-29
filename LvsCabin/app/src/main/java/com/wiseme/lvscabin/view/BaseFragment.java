@@ -2,6 +2,10 @@ package com.wiseme.lvscabin.view;
 
 import android.graphics.drawable.Drawable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
+
+import com.wiseme.lvscabin.R;
 
 /**
  * Created by lvtoa
@@ -10,7 +14,8 @@ import android.support.v4.app.Fragment;
 
 public abstract class BaseFragment extends Fragment {
 
-    public void bindToolbar() {
+    public void bindToolbar(View view) {
+        getBaseActivity().setToolbar((Toolbar)view.findViewById(R.id.toolbar));
         getBaseActivity().bindToolbar();
     }
 

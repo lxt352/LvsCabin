@@ -7,9 +7,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.dodola.listview.extlib.ListViewExt;
 import com.wiseme.lvscabin.R;
+import com.wiseme.lvscabin.data.ExpressQueryRepository;
+import com.wiseme.lvscabin.presenter.ExpressQueryPresenter;
 import com.wiseme.lvscabin.view.BaseFragment;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -18,6 +22,11 @@ import butterknife.ButterKnife;
  */
 
 public class ExpressQueryFragment extends BaseFragment {
+
+    @BindView(R.id.listview)
+    ListViewExt mListView;
+
+    private ExpressQueryPresenter mPresenter;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -28,9 +37,12 @@ public class ExpressQueryFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_express_query, container, false);
-        ButterKnife.bind(this,view);
-        bindToolbar();
+        ButterKnife.bind(this, view);
+        bindToolbar(view);
         setToolbarTitle("express", Gravity.CENTER);
+        setToolbarColor(R.color.white);
         return view;
     }
+
+
 }

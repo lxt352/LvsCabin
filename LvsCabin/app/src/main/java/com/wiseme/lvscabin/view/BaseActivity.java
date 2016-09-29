@@ -36,13 +36,18 @@ public abstract class BaseActivity extends AppCompatActivity {
         insertFragment(savedInstanceState);
     }
 
+    public void setToolbar(Toolbar toolbar) {
+        mToolbar = toolbar;
+    }
+
     /**
      * 绑定toolbar
      */
     public void bindToolbar() {
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        if (mToolbar == null)
+        if (mToolbar == null) {
+            mToolbar = (Toolbar) findViewById(R.id.toolbar);
             return;
+        }
         mToolbar.removeAllViews();
         mToolbar.addView(mTitleView);
     }
