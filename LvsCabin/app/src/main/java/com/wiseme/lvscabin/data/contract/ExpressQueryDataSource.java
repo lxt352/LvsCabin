@@ -8,7 +8,7 @@ import com.wiseme.lvscabin.api.response.ExpressInfoResponse;
  * lxt352@gmail.com
  */
 
-public interface ExpressQueryContract {
+public interface ExpressQueryDataSource {
 
     void fetchExpressInfo(String exCompany, long exId, Transaction<ExpressInfoResponse> callback);
 }

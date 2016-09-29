@@ -32,7 +32,7 @@ public abstract class BaseFragment extends Fragment {
     }
 
     public void setToolbarTitleColor(int colorId) {
-        getBaseActivity().setToolbarColor(colorId);
+        getBaseActivity().setToolbarTitleColor(colorId);
     }
 
     private BaseActivity getBaseActivity() {

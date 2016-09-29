@@ -2,6 +2,8 @@ package com.wiseme.lvscabin.api;
 
 import com.wiseme.lvscabin.api.response.ExpressInfoResponse;
 
+import java.io.Serializable;
+
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;

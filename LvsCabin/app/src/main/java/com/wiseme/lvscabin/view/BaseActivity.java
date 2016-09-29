@@ -44,12 +44,8 @@ public abstract class BaseActivity extends AppCompatActivity {
      * 绑定toolbar
      */
     public void bindToolbar() {
-        if (mToolbar == null) {
+        if (mToolbar == null)
             mToolbar = (Toolbar) findViewById(R.id.toolbar);
-            return;
-        }
-        mToolbar.removeAllViews();
-        mToolbar.addView(mTitleView);
     }
 
     public void setToolbarColor(int colorId) {
@@ -69,8 +65,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             return;
         if (mTitleView != null)
             mToolbar.removeView(mTitleView);
-        if (mTitleView == null)
-            mTitleView = new TextView(this);
+        mTitleView = new TextView(this);
         mTitleView.setSingleLine();
         mTitleView.setEllipsize(TextUtils.TruncateAt.END);
         mTitleView.setText(TextUtils.isEmpty(title) ? "" : title);

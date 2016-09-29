@@ -37,4 +37,11 @@ dependencies {
     compile 'com.dodola:listviewext:1.0'
     compile 'com.squareup.retrofit2:retrofit:2.0.0-beta4'
     compile 'com.google.code.gson:gson:2.2.4'
+
+    /**
+     * 依赖注入dagger库
+     */
+    compile 'com.google.dagger:dagger:2.0.2'
+    provided 'com.google.dagger:dagger-compiler:2.0.2'
+    provided 'javax.annotation:jsr250-api:1.0'
 }

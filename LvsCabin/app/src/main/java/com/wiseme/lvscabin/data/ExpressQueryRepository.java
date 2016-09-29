@@ -1,10 +1,12 @@
 package com.wiseme.lvscabin.data;
 
+import android.util.Log;
+
 import com.wiseme.lvscabin.structure.Error;
 import com.wiseme.lvscabin.structure.Transaction;
 import com.wiseme.lvscabin.api.ApiService;
 import com.wiseme.lvscabin.api.response.ExpressInfoResponse;
-import com.wiseme.lvscabin.data.contract.ExpressQueryContract;
+import com.wiseme.lvscabin.data.contract.ExpressQueryDataSource;
 import com.wiseme.lvscabin.utils.NetworkUtils;
 
 import retrofit2.Call;
@@ -16,7 +18,7 @@ import retrofit2.Response;
  * lxt352@gmail.com
  */
 
-public class ExpressQueryRepository implements ExpressQueryContract {
+public class ExpressQueryRepository implements ExpressQueryDataSource {
 
     private ApiService mApiService;
 
@@ -35,6 +37,7 @@ public class ExpressQueryRepository implements ExpressQueryContract {
             @Override
             public void onResponse(Call<ExpressInfoResponse> call, Response<ExpressInfoResponse> response) {
                 callback.onSuccess(response.body());
+                Log.d("TAG","response = " + response.body().toString());
             }
 
             @Override

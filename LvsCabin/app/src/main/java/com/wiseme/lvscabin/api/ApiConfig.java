@@ -5,7 +5,7 @@ package com.wiseme.lvscabin.api;
  * lxt352@gmail.com
  */
 
-public class ApiConfig {
+public class ApiConfig{
 
     public static final String PATH_EXPRESS_100 = "http://www.kuaidi100.com/query";
 }
