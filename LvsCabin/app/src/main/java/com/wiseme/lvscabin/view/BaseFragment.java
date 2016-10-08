@@ -7,7 +7,7 @@ import android.view.View;
 
 import com.wiseme.lvscabin.R;
 import com.wiseme.lvscabin.SinApplication;
-import com.wiseme.lvscabin.rely.component.ApplicationConponent;
+import com.wiseme.lvscabin.rely.component.ApplicationComponent;
 
 /**
  * Created by lvtoa
@@ -16,7 +16,7 @@ import com.wiseme.lvscabin.rely.component.ApplicationConponent;
 
 public abstract class BaseFragment extends Fragment {
 
-    public ApplicationConponent getAppComponent() {
+    public ApplicationComponent getAppComponent() {
         return ((SinApplication) getActivity().getApplication()).getApplicationComponent();
     }
 

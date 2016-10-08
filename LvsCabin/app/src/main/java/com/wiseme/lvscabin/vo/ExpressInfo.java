@@ -10,12 +10,12 @@ import android.os.Parcelable;
 
 public class ExpressInfo implements Parcelable {
 
-    private String content;
+    private String context;
     private String ftime;
     private String time;
 
     private ExpressInfo(Parcel in) {
-        content = in.readString();
+        context = in.readString();
         ftime = in.readString();
         time = in.readString();
     }
@@ -40,13 +40,13 @@ public class ExpressInfo implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(content);
+        dest.writeString(context);
         dest.writeString(ftime);
         dest.writeString(time);
     }
 
-    public String getContent() {
-        return content;
+    public String getContext() {
+        return context;
     }
 
     public String getFtime() {
@@ -61,7 +61,7 @@ public class ExpressInfo implements Parcelable {
     @Override
     public String toString() {
         return "ExpressInfo{" +
-                "content='" + content + '\'' +
+                "context='" + context + '\'' +
                 ", ftime='" + ftime + '\'' +
                 ", time='" + time + '\'' +
                 '}';

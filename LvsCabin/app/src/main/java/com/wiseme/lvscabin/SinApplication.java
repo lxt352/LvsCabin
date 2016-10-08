@@ -4,8 +4,8 @@ import android.app.Application;
 import android.content.Context;
 
 import com.wiseme.lvscabin.api.HostInteceptor;
-import com.wiseme.lvscabin.rely.component.ApplicationConponent;
-import com.wiseme.lvscabin.rely.component.DaggerApplicationConponent;
+import com.wiseme.lvscabin.rely.component.ApplicationComponent;
+import com.wiseme.lvscabin.rely.component.DaggerApplicationComponent;
 import com.wiseme.lvscabin.rely.module.ApplicationModule;
 
 /**
@@ -17,18 +17,18 @@ public class SinApplication extends Application {
 
     private static SinApplication mApplication;
 
-    private ApplicationConponent mApplicationComponent;
+    private ApplicationComponent mApplicationComponent;
 
     @Override
     public void onCreate() {
         super.onCreate();
         mApplication = this;
-        mApplicationComponent = DaggerApplicationConponent.builder()
+        mApplicationComponent = DaggerApplicationComponent.builder()
                 .applicationModule(new ApplicationModule(this,new HostInteceptor()))
                 .build();
     }
 
-    public ApplicationConponent getApplicationComponent(){
+    public ApplicationComponent getApplicationComponent(){
         return mApplicationComponent;
     }
 

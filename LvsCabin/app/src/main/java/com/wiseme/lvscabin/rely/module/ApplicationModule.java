@@ -47,7 +47,7 @@ public class ApplicationModule {
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
         httpClient.connectTimeout(6, TimeUnit.SECONDS).readTimeout(6, TimeUnit.SECONDS);
         return new Retrofit.Builder()
-                .baseUrl(ApiConfig.BASE_URL_EXPRESS)
+                .baseUrl(ApiConfig.BASE_URL)
                 .addConverterFactory(create(gson))
                 .client(httpClient.build())
                 .build()

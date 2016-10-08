@@ -2,6 +2,7 @@ package com.wiseme.lvscabin.data;
 
 import android.util.Log;
 
+import com.wiseme.lvscabin.api.ApiConfig;
 import com.wiseme.lvscabin.structure.Error;
 import com.wiseme.lvscabin.structure.Transaction;
 import com.wiseme.lvscabin.api.ApiService;

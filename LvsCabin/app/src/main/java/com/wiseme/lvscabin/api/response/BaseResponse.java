@@ -18,4 +18,12 @@ public class BaseResponse {
     public int getStatus() {
         return status;
     }
+
+    @Override
+    public String toString() {
+        return "BaseResponse{" +
+                "message='" + message + '\'' +
+                ", status=" + status +
+                '}';
+    }
 }
