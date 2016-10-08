@@ -1,6 +1,6 @@
 package com.wiseme.lvscabin.presenter.contract;
 
-import com.wiseme.lvscabin.structure.CommonView;
+import com.wiseme.lvscabin.view.CommonView;
 
 /**
  * Created by lvtoa
@@ -16,6 +16,6 @@ public interface ExpressQueryC {
 
     interface Presenter{
 
-        void fetchExpressInfo(String exCompany, long exId);
+        void fetchExpressInfo(String exCompany, String exId);
     }
 }

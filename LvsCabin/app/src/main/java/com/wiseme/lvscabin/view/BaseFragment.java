@@ -6,6 +6,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.wiseme.lvscabin.R;
+import com.wiseme.lvscabin.SinApplication;
+import com.wiseme.lvscabin.rely.component.ApplicationConponent;
 
 /**
  * Created by lvtoa
@@ -14,8 +16,12 @@ import com.wiseme.lvscabin.R;
 
 public abstract class BaseFragment extends Fragment {
 
+    public ApplicationConponent getAppComponent() {
+        return ((SinApplication) getActivity().getApplication()).getApplicationComponent();
+    }
+
     public void bindToolbar(View view) {
-        getBaseActivity().setToolbar((Toolbar)view.findViewById(R.id.toolbar));
+        getBaseActivity().setToolbar((Toolbar) view.findViewById(R.id.toolbar));
         getBaseActivity().bindToolbar();
     }
 

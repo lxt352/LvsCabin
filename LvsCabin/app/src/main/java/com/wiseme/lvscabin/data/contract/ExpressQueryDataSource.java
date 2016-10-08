@@ -10,5 +10,5 @@ import com.wiseme.lvscabin.api.response.ExpressInfoResponse;
 
 public interface ExpressQueryDataSource {
 
-    void fetchExpressInfo(String exCompany, long exId, Transaction<ExpressInfoResponse> callback);
+    void fetchExpressInfo(String exCompany, String exId, Transaction<ExpressInfoResponse> callback);
 }

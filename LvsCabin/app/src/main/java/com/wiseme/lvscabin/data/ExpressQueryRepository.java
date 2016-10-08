@@ -27,7 +27,7 @@ public class ExpressQueryRepository implements ExpressQueryDataSource {
     }
 
     @Override
-    public void fetchExpressInfo(String exCompany, long exId, final Transaction<ExpressInfoResponse> callback) {
+    public void fetchExpressInfo(String exCompany, String exId, final Transaction<ExpressInfoResponse> callback) {
         if (!NetworkUtils.isConnected()) {
             callback.onFail(new Error(Error.ERROR_CODE_UNCONNECTED));
             return;
@@ -43,6 +43,7 @@ public class ExpressQueryRepository implements ExpressQueryDataSource {
             @Override
             public void onFailure(Call<ExpressInfoResponse> call, Throwable t) {
                 callback.onFail(Error.adapt(t));
+                Log.d("TAG"," fail " + t.toString());
             }
         });
     }

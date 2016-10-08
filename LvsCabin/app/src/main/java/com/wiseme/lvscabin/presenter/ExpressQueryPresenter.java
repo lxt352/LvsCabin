@@ -23,7 +23,7 @@ public class ExpressQueryPresenter implements ExpressQueryC.Presenter {
     }
 
     @Override
-    public void fetchExpressInfo(String exCompany, long exId) {
+    public void fetchExpressInfo(String exCompany, String exId) {
         mView.showProgressIndicator(true);
         mRepository.fetchExpressInfo(exCompany, exId, new Transaction<ExpressInfoResponse>() {
             @Override

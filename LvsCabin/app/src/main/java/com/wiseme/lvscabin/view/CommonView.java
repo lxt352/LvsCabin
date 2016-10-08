@@ -1,4 +1,4 @@
-package com.wiseme.lvscabin.structure;
+package com.wiseme.lvscabin.view;
 
 import com.wiseme.lvscabin.structure.Error;
 
