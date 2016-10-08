@@ -1,4 +1,4 @@
-package com.wiseme.lvscabin.api;
+package com.wiseme.lvscabin.structure;
 
 import android.text.TextUtils;
 

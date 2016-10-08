@@ -7,7 +7,7 @@ import android.view.View;
 
 import com.wiseme.lvscabin.R;
 import com.wiseme.lvscabin.SinApplication;
-import com.wiseme.lvscabin.rely.component.ApplicationComponent;
+import com.wiseme.lvscabin.di.component.ApplicationComponent;
 
 /**
  * Created by lvtoa

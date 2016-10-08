@@ -3,10 +3,10 @@ package com.wiseme.lvscabin;
 import android.app.Application;
 import android.content.Context;
 
-import com.wiseme.lvscabin.api.HostInteceptor;
-import com.wiseme.lvscabin.rely.component.ApplicationComponent;
-import com.wiseme.lvscabin.rely.component.DaggerApplicationComponent;
-import com.wiseme.lvscabin.rely.module.ApplicationModule;
+import com.wiseme.lvscabin.structure.HostInteceptor;
+import com.wiseme.lvscabin.di.component.ApplicationComponent;
+import com.wiseme.lvscabin.di.component.DaggerApplicationComponent;
+import com.wiseme.lvscabin.di.module.ApplicationModule;
 
 /**
  * Created by lvtoa

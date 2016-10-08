@@ -1,8 +1,7 @@
-package com.wiseme.lvscabin.rely.component;
+package com.wiseme.lvscabin.di.component;
 
 import com.wiseme.lvscabin.api.ApiService;
-import com.wiseme.lvscabin.data.contract.ExpressQueryDataSource;
-import com.wiseme.lvscabin.rely.module.ApplicationModule;
+import com.wiseme.lvscabin.di.module.ApplicationModule;
 
 import dagger.Component;
 

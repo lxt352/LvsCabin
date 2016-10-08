@@ -1,4 +1,4 @@
-package com.wiseme.lvscabin.rely;
+package com.wiseme.lvscabin.di;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;

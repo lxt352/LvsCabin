@@ -1,22 +1,20 @@
-package com.wiseme.lvscabin.rely.module;
+package com.wiseme.lvscabin.di.module;
 
 import android.content.Context;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
+import com.wiseme.lvscabin.BuildConfig;
 import com.wiseme.lvscabin.api.ApiConfig;
 import com.wiseme.lvscabin.api.ApiService;
-import com.wiseme.lvscabin.api.HostInteceptor;
-import com.wiseme.lvscabin.data.ExpressQueryRepository;
-import com.wiseme.lvscabin.data.contract.ExpressQueryDataSource;
+import com.wiseme.lvscabin.structure.HostInteceptor;
 
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import dagger.Module;
 import dagger.Provides;
 import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 
 import static retrofit2.converter.gson.GsonConverterFactory.create;
@@ -43,9 +41,11 @@ public class ApplicationModule {
 //    }
 
     @Provides
-    public ApiService getBaseDomainApiService(Gson gson) {
-        OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
-        httpClient.connectTimeout(6, TimeUnit.SECONDS).readTimeout(6, TimeUnit.SECONDS);
+    ApiService getBaseDomainApiService(Gson gson) {
+        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+        interceptor.setLevel(HttpLoggingInterceptor.Level.BASIC );
+        OkHttpClient.Builder httpClient = new OkHttpClient.Builder().addInterceptor(interceptor);
+        httpClient.connectTimeout(20, TimeUnit.SECONDS).readTimeout(20, TimeUnit.SECONDS);
         return new Retrofit.Builder()
                 .baseUrl(ApiConfig.BASE_URL)
                 .addConverterFactory(create(gson))
