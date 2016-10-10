@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">LvsCabin</string>
+    <string name="app_name">Anyfun</string>
+    <string name="error_login_in">failed to login in</string>
 </resources>

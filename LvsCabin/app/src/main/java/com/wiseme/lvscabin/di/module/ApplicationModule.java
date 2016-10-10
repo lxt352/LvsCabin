@@ -44,7 +44,8 @@ public class ApplicationModule {
     ApiService getBaseDomainApiService(Gson gson) {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BASIC );
-        OkHttpClient.Builder httpClient = new OkHttpClient.Builder().addInterceptor(interceptor);
+        OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+//        httpClient.addInterceptor(interceptor);
         httpClient.connectTimeout(20, TimeUnit.SECONDS).readTimeout(20, TimeUnit.SECONDS);
         return new Retrofit.Builder()
                 .baseUrl(ApiConfig.BASE_URL)
