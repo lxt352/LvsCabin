@@ -52,5 +52,5 @@ dependencies {
     /**
      * firebase auth ui
      */
-    compile 'com.firebaseui:firebase-ui:0.6.0'
+    compile 'com.google.firebase:firebase-auth:9.6.1'
 }

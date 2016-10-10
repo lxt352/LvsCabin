@@ -16,19 +16,17 @@ public class Error {
     private String mMessage;
 
     /**
-     * 封装好的错误代码有固定的错误信息
-     *
-     * @param errorCode 错误代码
+     * parcelled errorcode has an unique settled code
+     * @param errorCode error code
      */
     public Error(int errorCode) {
         mErrorCode = errorCode;
     }
 
     /**
-     * 手动添加错误信息
-     *
-     * @param errorCode 错误代码
-     * @param message   错误信息
+     * add error message by yourself
+     * @param errorCode error code
+     * @param message   error message
      */
     public Error(int errorCode, String message) {
         mErrorCode = errorCode;
