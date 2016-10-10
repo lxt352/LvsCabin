@@ -22,9 +22,9 @@ android {
 }
 
 repositories {
-    maven {
-        url  "http://dl.bintray.com/dodola/maven"
-    }
+    maven { url "http://dl.bintray.com/dodola/maven" }
+    maven { url "https://jitpack.io" }
+
 }
 
 dependencies {
@@ -50,7 +50,10 @@ dependencies {
     provided 'com.google.dagger:dagger-compiler:2.0.2'
     provided 'javax.annotation:jsr250-api:1.0'
     /**
-     * firebase auth ui
+     * firebase
      */
     compile 'com.google.firebase:firebase-auth:9.6.1'
+    compile 'com.google.firebase:firebase-storage:9.6.1'
+
+    compile 'com.github.baoyachi:StepView:1.8.1'
 }

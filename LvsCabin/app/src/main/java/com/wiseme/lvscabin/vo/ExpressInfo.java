@@ -3,6 +3,8 @@ package com.wiseme.lvscabin.vo;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by lvtoa
  * lxt352@gmail.com
@@ -10,12 +12,13 @@ import android.os.Parcelable;
 
 public class ExpressInfo implements Parcelable {
 
-    private String context;
+    @SerializedName("context")
+    private String content;
     private String ftime;
     private String time;
 
     private ExpressInfo(Parcel in) {
-        context = in.readString();
+        content = in.readString();
         ftime = in.readString();
         time = in.readString();
     }
@@ -40,13 +43,13 @@ public class ExpressInfo implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(context);
+        dest.writeString(content);
         dest.writeString(ftime);
         dest.writeString(time);
     }
 
-    public String getContext() {
-        return context;
+    public String getContent() {
+        return content;
     }
 
     public String getFtime() {
@@ -61,7 +64,7 @@ public class ExpressInfo implements Parcelable {
     @Override
     public String toString() {
         return "ExpressInfo{" +
-                "context='" + context + '\'' +
+                "content='" + content + '\'' +
                 ", ftime='" + ftime + '\'' +
                 ", time='" + time + '\'' +
                 '}';

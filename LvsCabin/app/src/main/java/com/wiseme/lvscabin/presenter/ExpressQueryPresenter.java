@@ -29,7 +29,7 @@ public class ExpressQueryPresenter implements ExpressQueryC.Presenter {
             @Override
             public void onSuccess(ExpressInfoResponse expressInfoResponse) {
                 mView.showProgressIndicator(false);
-                mView.loadDone();
+                mView.loadDone(expressInfoResponse);
             }
 
             @Override

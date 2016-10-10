@@ -3,6 +3,7 @@ package com.wiseme.lvscabin.view.fragment;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -52,7 +53,7 @@ public class MusicFragment extends BaseFragment {
             mUser = firebaseAuth.getCurrentUser();
             if (mUser != null && !mUser.isEmailVerified()) {
                 mUser.sendEmailVerification();
-                ToastUtils.toastShortly(getContext(),"email of verification is sent");
+                ToastUtils.toastShortly(getContext(), "email of verification is sent");
             }
         }
     };
@@ -85,13 +86,17 @@ public class MusicFragment extends BaseFragment {
         }
     }
 
-    private void createUser(){
-        mAuth.createUserWithEmailAndPassword(mEmail.getText().toString(), mPassword.getText().toString())
+    private void createUser() {
+        String email = mEmail.getText().toString();
+        String password = mPassword.getText().toString();
+        if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password))
+            return;
+        mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            ToastUtils.toastShortly(getContext(),"success");
+                            ToastUtils.toastShortly(getContext(), "success");
                         }
                     }
                 })
@@ -99,7 +104,7 @@ public class MusicFragment extends BaseFragment {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         ToastUtils.toastShortly(getContext(), e.getMessage());
-                        Log.e("TAG","create user failed " + e.toString());
+                        Log.e("TAG", "create user failed " + e.toString());
                     }
                 });
     }
@@ -107,5 +112,8 @@ public class MusicFragment extends BaseFragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        if (mUser != null) {
+            mUser.delete();
+        }
     }
 }

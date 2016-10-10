@@ -24,6 +24,30 @@ public class ExpressInfoResponse extends BaseResponse{
     @SerializedName("data")
     List<ExpressInfo> mExpInfos;
 
+    public String getCom() {
+        return com;
+    }
+
+    public String getCondition() {
+        return condition;
+    }
+
+    public String getIscheck() {
+        return ischeck;
+    }
+
+    public String getNu() {
+        return nu;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public List<ExpressInfo> getExpInfos() {
+        return mExpInfos;
+    }
+
     @Override
     public String toString() {
         return "ExpressInfoResponse{" +

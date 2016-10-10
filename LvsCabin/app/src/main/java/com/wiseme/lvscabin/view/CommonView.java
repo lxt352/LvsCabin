@@ -7,9 +7,9 @@ import com.wiseme.lvscabin.structure.Error;
  * lxt352@gmail.com
  */
 
-public interface CommonView {
+public interface CommonView<T> {
 
-    void loadDone();
+    void loadDone(T t);
 
     void showError(Error error);
 }

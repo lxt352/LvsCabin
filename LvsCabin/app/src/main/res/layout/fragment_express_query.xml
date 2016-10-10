@@ -9,10 +9,10 @@
         android:id="@+id/appbar"
         layout="@layout/include_appbar" />
 
-    <com.dodola.listview.extlib.ListViewExt
-        android:id="@+id/listview"
+    <com.baoyachi.stepview.VerticalStepView
+        android:id="@+id/step_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/appbar" />
+        android:layout_below="@id/appbar"/>
 
 </RelativeLayout>

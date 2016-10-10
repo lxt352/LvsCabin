@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
+import android.support.v4.content.ContextCompat;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -21,10 +22,12 @@ public class ValueUtils {
         return SinApplication.getGlobalContext();
     }
 
-    @TargetApi(Build.VERSION_CODES.M)
     public static int getColor(int resId) {
-        return CompatUtils.IS_ANDROID_M_LATER ? getContext().getColor(resId)
-                : getContext().getResources().getColor(resId);
+        return ContextCompat.getColor(getContext(), resId);
+    }
+
+    public static Drawable getDrawable(int resId) {
+        return ContextCompat.getDrawable(getContext(), resId);
     }
 
     @TargetApi(Build.VERSION_CODES.M)
