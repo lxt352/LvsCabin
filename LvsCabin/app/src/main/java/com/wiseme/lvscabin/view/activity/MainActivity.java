@@ -37,13 +37,13 @@ public class MainActivity extends BaseActivity {
         public void onTabSelected(@IdRes int tabId) {
             switch (tabId) {
                 case R.id.tab_music:
-                    mViewPager.setCurrentItem(0);
+                    mViewPager.setCurrentItem(0, false);
                     break;
                 case R.id.tab_video:
-                    mViewPager.setCurrentItem(1);
+                    mViewPager.setCurrentItem(1, false);
                     break;
                 case R.id.tab_news:
-                    mViewPager.setCurrentItem(2);
+                    mViewPager.setCurrentItem(2, false);
                     break;
             }
         }
@@ -59,7 +59,7 @@ public class MainActivity extends BaseActivity {
         mFragmentList.add(new VideoFragment());
         mFragmentList.add(new ExpressQueryFragment());
 
-        mViewPager.bindFragmentList(this,mFragmentList);
+        mViewPager.bindFragmentList(this, mFragmentList);
         mBottomBar.setOnTabSelectListener(mOnTabSelectListener);
     }
 

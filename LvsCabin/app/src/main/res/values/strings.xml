@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Anyfun</string>
-    <string name="error_login_in">failed to login in</string>
+
+
+    <string name="error_sign_in">failed to sign in</string>
+    <string name="error_user_inavailable">the user is not available</string>
+    <string name="error_username_password">username or password is wrong</string>
+
+
+    <string name="action_sign_in_success">sign in successfully</string>
 </resources>

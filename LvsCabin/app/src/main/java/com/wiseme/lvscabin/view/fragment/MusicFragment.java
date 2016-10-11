@@ -4,23 +4,23 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.gms.tasks.Tasks;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 import com.google.firebase.auth.FirebaseUser;
 import com.wiseme.lvscabin.R;
+import com.wiseme.lvscabin.utils.GooglePlayServiceUtils;
+import com.wiseme.lvscabin.utils.Log;
 import com.wiseme.lvscabin.utils.ToastUtils;
 import com.wiseme.lvscabin.view.BaseFragment;
 
@@ -51,10 +51,15 @@ public class MusicFragment extends BaseFragment {
         @Override
         public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
             mUser = firebaseAuth.getCurrentUser();
-            if (mUser != null && !mUser.isEmailVerified()) {
-                mUser.sendEmailVerification();
-                ToastUtils.toastShortly(getContext(), "email of verification is sent");
+            if (mUser != null) {
+                Log.I("user is not null", true);
+            }else{
+                Log.I("user is null",false);
             }
+//            if (mUser != null && !mUser.isEmailVerified()) {
+//                mUser.sendEmailVerification();
+//                ToastUtils.toastShortly(getContext(), "email of verification is sent");
+//            }
         }
     };
 
@@ -63,6 +68,11 @@ public class MusicFragment extends BaseFragment {
         super.onCreate(savedInstanceState);
         mAuth = FirebaseAuth.getInstance();
         mAuth.addAuthStateListener(mAuthStateListener);
+
+        boolean googleServiceAvailable = GooglePlayServiceUtils.isGooglePlayServicesAvailable(getContext());
+        Log.I("google play service available " + googleServiceAvailable, googleServiceAvailable);
+        boolean useravailable = mUser == null ? false : true;
+        Log.I("firebase user is available " + useravailable, useravailable);
     }
 
     @Nullable
@@ -81,7 +91,8 @@ public class MusicFragment extends BaseFragment {
     public void submit(View view) {
         switch (view.getId()) {
             case R.id.submit:
-                createUser();
+//                createUser();
+                signIn();
                 break;
         }
     }
@@ -104,7 +115,33 @@ public class MusicFragment extends BaseFragment {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         ToastUtils.toastShortly(getContext(), e.getMessage());
-                        Log.e("TAG", "create user failed " + e.toString());
+                        Log.I("create user failed " + e.toString(), false);
+                    }
+                });
+    }
+
+    private void signIn() {
+        String email = mEmail.getText().toString();
+        String password = mPassword.getText().toString();
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            ToastUtils.toastShortly(getContext(), getString(R.string.action_sign_in_success));
+                        }
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        if (e instanceof FirebaseAuthInvalidUserException){
+                            ToastUtils.toastShortly(getContext(),getString(R.string.error_user_inavailable));
+                        }else if (e instanceof FirebaseAuthInvalidCredentialsException){
+                            ToastUtils.toastShortly(getContext(),getString(R.string.error_username_password));
+                        }
+//                        ToastUtils.toastShortly(getContext(), getString(R.string.error_sign_in));
+                        Log.I("failed to sign in " + e.toString(), false);
                     }
                 });
     }
@@ -112,8 +149,5 @@ public class MusicFragment extends BaseFragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (mUser != null) {
-            mUser.delete();
-        }
     }
 }
