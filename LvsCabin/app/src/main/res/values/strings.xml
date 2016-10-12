@@ -8,4 +8,7 @@
 
 
     <string name="action_sign_in_success">sign in successfully</string>
+    <string name="submit">submit</string>
+    <string name="email">email</string>
+    <string name="password">password</string>
 </resources>

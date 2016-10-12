@@ -3,8 +3,6 @@ package com.wiseme.lvscabin.view.activity;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
-import android.view.Gravity;
-import android.widget.FrameLayout;
 
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
@@ -59,7 +57,7 @@ public class MainActivity extends BaseActivity {
         mFragmentList.add(new VideoFragment());
         mFragmentList.add(new ExpressQueryFragment());
 
-        mViewPager.bindFragmentList(this, mFragmentList);
+        mViewPager.bindFragments(this, mFragmentList);
         mBottomBar.setOnTabSelectListener(mOnTabSelectListener);
     }
 

@@ -1,6 +1,4 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -27,11 +25,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_normal"
+            android:background="@drawable/shape_radius_half_white_bg"
             android:drawablePadding="@dimen/spacing_large"
-            android:hint="email"
+            android:hint="@string/email"
             android:inputType="textEmailAddress"
             android:maxLines="1"
             android:paddingLeft="@dimen/spacing_normal"
+            android:paddingRight="@dimen/spacing_normal"
             android:paddingStart="@dimen/spacing_normal" />
 
         <EditText
@@ -40,20 +40,22 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/email"
             android:layout_marginTop="@dimen/spacing_large"
+            android:background="@drawable/shape_radius_half_white_bg"
             android:drawablePadding="@dimen/spacing_large"
-            android:hint="password"
+            android:hint="@string/password"
             android:imeActionId="@+id/login"
             android:inputType="textPassword"
             android:maxLines="1"
             android:paddingLeft="@dimen/spacing_normal"
+            android:paddingRight="@dimen/spacing_normal"
             android:paddingStart="@dimen/spacing_normal" />
 
 
         <FrameLayout
             android:id="@+id/expand"
-            android:layout_below="@id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/password"
             android:gravity="center_vertical">
 
             <TextView
@@ -74,21 +76,21 @@
         </FrameLayout>
 
         <FrameLayout
-            android:layout_below="@id/expand"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_below="@id/expand">
 
             <Button
                 android:id="@+id/submit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="submit" />
+                android:text="@string/submit" />
 
         </FrameLayout>
 
         <android.support.v4.widget.Space
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
 
     </RelativeLayout>
 </ScrollView>

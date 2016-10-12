@@ -19,7 +19,6 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 import com.google.firebase.auth.FirebaseUser;
 import com.wiseme.lvscabin.R;
-import com.wiseme.lvscabin.utils.GooglePlayServiceUtils;
 import com.wiseme.lvscabin.utils.Log;
 import com.wiseme.lvscabin.utils.ToastUtils;
 import com.wiseme.lvscabin.view.BaseFragment;
@@ -53,8 +52,8 @@ public class MusicFragment extends BaseFragment {
             mUser = firebaseAuth.getCurrentUser();
             if (mUser != null) {
                 Log.I("user is not null", true);
-            }else{
-                Log.I("user is null",false);
+            } else {
+                Log.I("user is null", false);
             }
 //            if (mUser != null && !mUser.isEmailVerified()) {
 //                mUser.sendEmailVerification();
@@ -69,9 +68,7 @@ public class MusicFragment extends BaseFragment {
         mAuth = FirebaseAuth.getInstance();
         mAuth.addAuthStateListener(mAuthStateListener);
 
-        boolean googleServiceAvailable = GooglePlayServiceUtils.isGooglePlayServicesAvailable(getContext());
-        Log.I("google play service available " + googleServiceAvailable, googleServiceAvailable);
-        boolean useravailable = mUser == null ? false : true;
+        boolean useravailable = mUser != null;
         Log.I("firebase user is available " + useravailable, useravailable);
     }
 
@@ -135,10 +132,10 @@ public class MusicFragment extends BaseFragment {
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        if (e instanceof FirebaseAuthInvalidUserException){
-                            ToastUtils.toastShortly(getContext(),getString(R.string.error_user_inavailable));
-                        }else if (e instanceof FirebaseAuthInvalidCredentialsException){
-                            ToastUtils.toastShortly(getContext(),getString(R.string.error_username_password));
+                        if (e instanceof FirebaseAuthInvalidUserException) {
+                            ToastUtils.toastShortly(getContext(), getString(R.string.error_user_inavailable));
+                        } else if (e instanceof FirebaseAuthInvalidCredentialsException) {
+                            ToastUtils.toastShortly(getContext(), getString(R.string.error_username_password));
                         }
 //                        ToastUtils.toastShortly(getContext(), getString(R.string.error_sign_in));
                         Log.I("failed to sign in " + e.toString(), false);

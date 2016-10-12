@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
+import android.view.ViewGroup;
 
 import com.wiseme.lvscabin.view.BaseActivity;
 import com.wiseme.lvscabin.view.BaseFragment;
@@ -36,9 +37,9 @@ public class ViewPager extends android.support.v4.view.ViewPager {
         return true;
     }
 
-    public void bindFragmentList(BaseActivity activity, List<BaseFragment> fragments) {
+    public void bindFragments(BaseActivity activity, List<BaseFragment> fragments) {
         if (activity == null || fragments == null) {
-            Log.d(getClass().getSimpleName(), "the param came in is null");
+            Log.e(getClass().getSimpleName(), "the param came in is null");
             return;
         }
         mFragmentList = fragments;
@@ -66,5 +67,8 @@ public class ViewPager extends android.support.v4.view.ViewPager {
             return mFragmentList.size();
         }
 
+        @Override
+        public void destroyItem(ViewGroup container, int position, Object object) {
+        }
     }
 }

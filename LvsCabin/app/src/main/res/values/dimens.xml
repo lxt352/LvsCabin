@@ -3,6 +3,12 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
+    <!-- view size -->
+    <dimen name="height_small">72dp</dimen>
+
+    <dimen name="image_width_small">128dp</dimen>
+    <dimen name="image_width_normal">160dp</dimen>
+
     <!-- 标准的间隙大小 -->
     <dimen name="spacing_normal">8dp</dimen>
     <dimen name="spacing_micro">4dp</dimen>

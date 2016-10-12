@@ -1,0 +1,25 @@
+package com.wiseme.lvscabin.view.fragment;
+
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.wiseme.lvscabin.view.BaseFragment;
+
+/**
+ * Created by lvsin
+ * lxt352@gmail.com
+ */
+
+public class AdFragment extends BaseFragment {
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        TextView tv = new TextView(getContext());
+        return tv;
+    }
+}
