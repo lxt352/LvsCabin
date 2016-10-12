@@ -7,11 +7,16 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.wiseme.lvscabin.R;
 import com.wiseme.lvscabin.utils.Log;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -34,7 +39,7 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-
+        ButterKnife.bind(this);
         checkGps();
     }
 
@@ -54,6 +59,16 @@ public class SplashActivity extends AppCompatActivity {
                 }
             });
             dialog.show();
+        }
+    }
+
+    @OnClick({R.id.enter})
+    public void onClick(View view){
+        switch (view.getId()){
+            case R.id.enter:
+                mHandler.removeMessages(MSG_OPEN_MAIN_ACTIVITY);
+                mHandler.sendEmptyMessage(MSG_OPEN_MAIN_ACTIVITY);
+                break;
         }
     }
 }

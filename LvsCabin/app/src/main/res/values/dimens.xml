@@ -5,9 +5,16 @@
 
     <!-- view size -->
     <dimen name="height_small">72dp</dimen>
-
     <dimen name="image_width_small">128dp</dimen>
     <dimen name="image_width_normal">160dp</dimen>
+
+    <!-- list size  -->
+    <dimen name="list_item_avatar">40dp</dimen>
+    <dimen name="list_item_single_line">48dp</dimen>
+    <dimen name="list_item_single_line_with_avatar">56dp</dimen>
+    <dimen name="list_item_two_lines">72dp</dimen>
+    <dimen name="list_item_three_lines">88dp</dimen>
+
 
     <!-- 标准的间隙大小 -->
     <dimen name="spacing_normal">8dp</dimen>

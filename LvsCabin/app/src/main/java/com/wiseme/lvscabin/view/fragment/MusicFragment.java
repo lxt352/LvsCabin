@@ -104,7 +104,7 @@ public class MusicFragment extends BaseFragment {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            ToastUtils.toastShortly(getContext(), "success");
+                            ToastUtils.toastShortly(getContext(), getString(R.string.action_success));
                         }
                     }
                 })
@@ -120,6 +120,8 @@ public class MusicFragment extends BaseFragment {
     private void signIn() {
         String email = mEmail.getText().toString();
         String password = mPassword.getText().toString();
+        if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password))
+            return;
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override

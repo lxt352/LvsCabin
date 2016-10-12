@@ -11,4 +11,6 @@
     <string name="submit">submit</string>
     <string name="email">email</string>
     <string name="password">password</string>
+    <string name="action_success">success</string>
+    <string name="action_enter">enter</string>
 </resources>
