@@ -8,9 +8,10 @@
     tools:context="com.wiseme.lvscabin.view.activity.SplashActivity">
 
     <fragment
+        android:id="@+id/fragment_ad"
+        android:name="com.wiseme.lvscabin.view.fragment.AdFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:name="com.wiseme.lvscabin.view.fragment.AdFragment"
         android:layout_weight="1" />
 
     <FrameLayout
@@ -28,10 +29,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end|center_vertical"
-            android:padding="@dimen/spacing_normal"
             android:layout_marginEnd="@dimen/spacing_large"
             android:layout_marginRight="@dimen/spacing_large"
             android:background="@drawable/shape_radius_rectangle_gray"
+            android:padding="@dimen/spacing_normal"
             android:text="@string/action_enter" />
     </FrameLayout>
 

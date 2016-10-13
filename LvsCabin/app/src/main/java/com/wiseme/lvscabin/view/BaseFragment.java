@@ -20,9 +20,9 @@ public abstract class BaseFragment extends Fragment {
         return ((SinApplication) getActivity().getApplication()).getApplicationComponent();
     }
 
-    public void bindToolbar(View view) {
+    public void bindToolbar(View view,boolean homeAsUp) {
         getBaseActivity().setToolbar((Toolbar) view.findViewById(R.id.toolbar));
-        getBaseActivity().bindToolbar();
+        getBaseActivity().bindToolbar(homeAsUp);
     }
 
     public void setToolbarColor(int colorId) {

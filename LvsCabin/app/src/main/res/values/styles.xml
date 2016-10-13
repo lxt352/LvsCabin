@@ -9,5 +9,27 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="TextAppearance.App.Title" parent="TextAppearance.AppCompat.Title"/>
+    <style name="TextAppearance.App.Title" parent="TextAppearance.AppCompat.Title" />
+
+    <style name="Widget.App.Button.Borderless.Colored.Teal" parent="">
+        <item name="android:theme">@style/ColorAccent.Teal</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Widget.App.ProgressBar.Colored.White" parent="">
+        <item name="android:theme">@style/ColorAccent.White</item>
+    </style>
+
+    <style name="ColorAccent.Teal" parent="">
+        <item name="colorButtonNormal">@color/teal_normal</item>
+        <item name="colorAccent">@color/teal_normal</item>
+    </style>
+
+    <style name="ColorAccent.White" parent="">
+        <item name="colorAccent">@color/white</item>
+    </style>
+
+    <style name="Widget.App.Toolbar.Navigation" parent="">
+        <item name="navigationIcon">@drawable/ic_vec_navigation_left_white</item>
+    </style>
 </resources>

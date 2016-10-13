@@ -9,7 +9,7 @@ import com.roughike.bottombar.OnTabSelectListener;
 import com.wiseme.lvscabin.R;
 import com.wiseme.lvscabin.view.BaseActivity;
 import com.wiseme.lvscabin.view.BaseFragment;
-import com.wiseme.lvscabin.view.fragment.ExpressQueryFragment;
+import com.wiseme.lvscabin.view.fragment.ExpressFragment;
 import com.wiseme.lvscabin.view.fragment.MusicFragment;
 import com.wiseme.lvscabin.view.fragment.VideoFragment;
 import com.wiseme.lvscabin.view.widget.ViewPager;
@@ -55,14 +55,14 @@ public class MainActivity extends BaseActivity {
         ButterKnife.bind(this);
         mFragmentList.add(new MusicFragment());
         mFragmentList.add(new VideoFragment());
-        mFragmentList.add(new ExpressQueryFragment());
+        mFragmentList.add(new ExpressFragment());
 
         mViewPager.bindFragments(this, mFragmentList);
         mBottomBar.setOnTabSelectListener(mOnTabSelectListener);
     }
 
     @Override
-    protected Fragment onCreateFragment() {
+    public Fragment onCreateFragment() {
         return null;
     }
 }

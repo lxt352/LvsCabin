@@ -4,9 +4,12 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
 
     <!-- view size -->
-    <dimen name="height_small">72dp</dimen>
-    <dimen name="image_width_small">128dp</dimen>
-    <dimen name="image_width_normal">160dp</dimen>
+    <dimen name="height_nano">40dp</dimen>
+    <dimen name="height_micro">48dp</dimen>
+    <dimen name="height_small">56dp</dimen>
+    <dimen name="height_normal">72dp</dimen>
+    <dimen name="height_large">128dp</dimen>
+    <dimen name="height_xlarge">160dp</dimen>
 
     <!-- list size  -->
     <dimen name="list_item_avatar">40dp</dimen>
@@ -17,9 +20,9 @@
 
 
     <!-- 标准的间隙大小 -->
-    <dimen name="spacing_normal">8dp</dimen>
-    <dimen name="spacing_micro">4dp</dimen>
     <dimen name="spacing_nano">2dp</dimen>
+    <dimen name="spacing_micro">4dp</dimen>
+    <dimen name="spacing_normal">8dp</dimen>
     <dimen name="spacing_large">16dp</dimen>
     <dimen name="spacing_xlarge">24dp</dimen>
     <dimen name="spacing_xxlarge">32dp</dimen>

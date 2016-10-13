@@ -78,7 +78,7 @@ public class MusicFragment extends BaseFragment {
         if (mView == null) {
             mView = inflater.inflate(R.layout.fragment_sign_in, container, false);
             ButterKnife.bind(this, mView);
-            bindToolbar(mView);
+            bindToolbar(mView,false);
             setToolbarTitle("Music", Gravity.CENTER);
         }
         return mView;

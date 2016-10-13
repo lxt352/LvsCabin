@@ -2,15 +2,13 @@ package com.wiseme.lvscabin.view.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
-import android.util.Log;
-import android.view.Gravity;
+import android.text.style.BulletSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.baoyachi.stepview.VerticalStepView;
-import com.dodola.listview.extlib.ListViewExt;
 import com.wiseme.lvscabin.R;
 import com.wiseme.lvscabin.api.ApiService;
 import com.wiseme.lvscabin.api.response.ExpressInfoResponse;
@@ -30,41 +28,65 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Created by lvtoa
+ * Created by lvsin
  * lxt352@gmail.com
  */
 
-public class ExpressQueryFragment extends BaseFragment implements ExpressQueryC.View {
+public class ExpressInfoFragment extends BaseFragment implements ExpressQueryC.View {
 
     @BindView(R.id.step_view)
     VerticalStepView mStepView;
 
+    @BindView(R.id.progress_bar)
+    ProgressBar mProgressBar;
+
     private ExpressQueryPresenter mPresenter;
+
+    private String mExId;
+
+    public static ExpressInfoFragment newInstance(String exId) {
+        Bundle b = new Bundle();
+        b.putString(ExpressFragment.ID_EXPRESS, exId);
+        ExpressInfoFragment fragment = new ExpressInfoFragment();
+        fragment.setArguments(b);
+        return fragment;
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Bundle arguments = getArguments();
+        mExId = arguments.getString(ExpressFragment.ID_EXPRESS);
+
         ApiService apiService = getAppComponent().getApiService();
         mPresenter = new ExpressQueryPresenter(this, new ExpressQueryRepository(apiService));
-        mPresenter.fetchExpressInfo("yuantong", "600230538853");
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_express_query, container, false);
+        View view = inflater.inflate(R.layout.fragment_express_info, container, false);
         ButterKnife.bind(this, view);
-        bindToolbar(view);
-        setToolbarTitle("express", Gravity.CENTER);
+        bindToolbar(view, true);
         setToolbarColor(R.color.teal_normal);
-        setToolbarTitleColor(R.color.white);
+
+        String[] companies = getResources().getStringArray(R.array.array_express_companies);
+        for (String company : companies) {
+            mPresenter.fetchExpressInfo(company, mExId);
+        }
+//        mPresenter.fetchExpressInfo("yuantong", "600230538853");
         return view;
     }
 
-
     @Override
     public void showProgressIndicator(boolean shown) {
-
+        if (shown) {
+            mProgressBar.setVisibility(View.VISIBLE);
+            mStepView.setVisibility(View.GONE);
+        } else {
+            mProgressBar.setVisibility(View.GONE);
+            mStepView.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
@@ -73,6 +95,8 @@ public class ExpressQueryFragment extends BaseFragment implements ExpressQueryC.
             return;
         ExpressInfoResponse response = (ExpressInfoResponse) o;
         List<ExpressInfo> expInfos = response.getExpInfos();
+        if (expInfos == null)
+            return;
         List<String> infos = new ArrayList<>();
         for (ExpressInfo expInfo : expInfos) {
             infos.add(expInfo.getContent());

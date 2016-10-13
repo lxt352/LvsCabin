@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="array_express_companies">
+        <item>zhongtong</item>
+        <item>yuantong</item>
+        <item>shentong</item>
+        <item>ems</item>
+        <item>shunfeng</item>
+        <item>yunda</item>
+        <item>tiantian</item>
+        <item>huitongkuaidi</item>
+        <item>quanfengkuaidi</item>
+        <item>debangwuliu</item>
+        <item>zhaijisong</item>
+    </string-array>
+
+</resources>

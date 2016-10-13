@@ -8,14 +8,19 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="@dimen/spacing_normal">
 
         <EditText
+            android:id="@+id/expressId"
             android:layout_width="match_parent"
             android:layout_height="@dimen/list_item_avatar"
-            android:background="@drawable/shape_radius_rectangle_gray" />
+            android:background="@drawable/shape_radius_rectangle_teal"
+            android:paddingLeft="@dimen/spacing_normal"
+            android:textCursorDrawable="@drawable/shape_text_cursor_teal" />
 
         <ImageView
+            android:id="@+id/clear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -26,5 +31,12 @@
             android:rotation="45"
             android:src="@drawable/ic_vec_add_circle_white" />
     </RelativeLayout>
+
+    <Button
+        android:id="@+id/query"
+        style="@style/Widget.App.Button.Borderless.Colored.Teal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/action_query" />
 
 </LinearLayout>

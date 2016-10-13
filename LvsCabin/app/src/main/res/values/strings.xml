@@ -13,4 +13,5 @@
     <string name="password">password</string>
     <string name="action_success">success</string>
     <string name="action_enter">enter</string>
+    <string name="action_query">query</string>
 </resources>
