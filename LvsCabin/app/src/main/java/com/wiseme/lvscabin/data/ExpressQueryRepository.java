@@ -10,6 +10,8 @@ import com.wiseme.lvscabin.api.response.ExpressInfoResponse;
 import com.wiseme.lvscabin.data.contract.ExpressQueryDataSource;
 import com.wiseme.lvscabin.utils.NetworkUtils;
 
+import javax.inject.Inject;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -23,6 +25,7 @@ public class ExpressQueryRepository implements ExpressQueryDataSource {
 
     private ApiService mApiService;
 
+    @Inject
     public ExpressQueryRepository(ApiService apiService) {
         mApiService = apiService;
     }

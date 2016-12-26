@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 import com.wiseme.lvscabin.R;
-import com.wiseme.lvscabin.presenter.contract.ExpressQueryC;
+import com.wiseme.lvscabin.presenter.contract.ExpressQueryContract;
 import com.wiseme.lvscabin.structure.Error;
 import com.wiseme.lvscabin.view.BaseFragment;
 import com.wiseme.lvscabin.view.activity.ExpressInfoActivity;
@@ -25,7 +25,7 @@ import butterknife.OnClick;
  * lxt352@gmail.com
  */
 
-public class ExpressFragment extends BaseFragment implements ExpressQueryC.View {
+public class ExpressFragment extends BaseFragment implements ExpressQueryContract.View {
 
     public static final String ID_EXPRESS = "expressId";
 

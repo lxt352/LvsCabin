@@ -26,12 +26,11 @@ public class SplashActivity extends AppCompatActivity {
 
     private static final int REQUEST_GOOGLE_SERVICE_AVAILABILITY = 11;
 
-    private Handler mHandler = new Handler(){
+    private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-            startActivity(new Intent(SplashActivity.this,MainActivity.class));
-            finish();
+            removeMessages(MSG_OPEN_MAIN_ACTIVITY);
+            openMainActivity();
         }
     };
 
@@ -43,14 +42,14 @@ public class SplashActivity extends AppCompatActivity {
         checkGps();
     }
 
-    private void checkGps(){
+    private void checkGps() {
         GoogleApiAvailability availability = GoogleApiAvailability.getInstance();
         int resultCode = availability.isGooglePlayServicesAvailable(this);
         boolean hasGps = resultCode == ConnectionResult.SUCCESS;
         Log.I("google play service available " + hasGps, hasGps);
-        if (hasGps){
-            mHandler.sendEmptyMessageDelayed(MSG_OPEN_MAIN_ACTIVITY,SECONDS_WAITING);
-        }else{
+        if (hasGps) {
+            mHandler.sendEmptyMessageDelayed(MSG_OPEN_MAIN_ACTIVITY, SECONDS_WAITING);
+        } else {
             Dialog dialog = availability.getErrorDialog(this, resultCode, REQUEST_GOOGLE_SERVICE_AVAILABILITY);
             dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
                 @Override
@@ -63,12 +62,17 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     @OnClick({R.id.enter})
-    public void onClick(View view){
-        switch (view.getId()){
+    public void onClick(View view) {
+        switch (view.getId()) {
             case R.id.enter:
                 mHandler.removeMessages(MSG_OPEN_MAIN_ACTIVITY);
-                mHandler.sendEmptyMessage(MSG_OPEN_MAIN_ACTIVITY);
+                openMainActivity();
                 break;
         }
+    }
+
+    private void openMainActivity() {
+        startActivity(new Intent(SplashActivity.this, MainActivity.class));
+        finish();
     }
 }

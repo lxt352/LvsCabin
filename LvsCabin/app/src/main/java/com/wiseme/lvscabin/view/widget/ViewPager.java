@@ -32,11 +32,6 @@ public class ViewPager extends android.support.v4.view.ViewPager {
         super(context, attrs);
     }
 
-    @Override
-    public boolean onTouchEvent(MotionEvent ev) {
-        return true;
-    }
-
     public void bindFragments(BaseActivity activity, List<BaseFragment> fragments) {
         if (activity == null || fragments == null) {
             Log.e(getClass().getSimpleName(), "the param came in is null");

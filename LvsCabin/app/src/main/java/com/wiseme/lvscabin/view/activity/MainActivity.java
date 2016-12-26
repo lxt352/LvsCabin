@@ -11,7 +11,7 @@ import com.wiseme.lvscabin.view.BaseActivity;
 import com.wiseme.lvscabin.view.BaseFragment;
 import com.wiseme.lvscabin.view.fragment.ExpressFragment;
 import com.wiseme.lvscabin.view.fragment.MusicFragment;
-import com.wiseme.lvscabin.view.fragment.VideoFragment;
+import com.wiseme.lvscabin.module.test.VideoFragment;
 import com.wiseme.lvscabin.view.widget.ViewPager;
 
 import java.util.ArrayList;

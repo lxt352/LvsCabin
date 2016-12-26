@@ -2,7 +2,6 @@ package com.wiseme.lvscabin.view.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.text.style.BulletSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +13,7 @@ import com.wiseme.lvscabin.api.ApiService;
 import com.wiseme.lvscabin.api.response.ExpressInfoResponse;
 import com.wiseme.lvscabin.data.ExpressQueryRepository;
 import com.wiseme.lvscabin.presenter.ExpressQueryPresenter;
-import com.wiseme.lvscabin.presenter.contract.ExpressQueryC;
+import com.wiseme.lvscabin.presenter.contract.ExpressQueryContract;
 import com.wiseme.lvscabin.structure.Error;
 import com.wiseme.lvscabin.utils.ValueUtils;
 import com.wiseme.lvscabin.view.BaseFragment;
@@ -32,7 +31,7 @@ import butterknife.ButterKnife;
  * lxt352@gmail.com
  */
 
-public class ExpressInfoFragment extends BaseFragment implements ExpressQueryC.View {
+public class ExpressInfoFragment extends BaseFragment implements ExpressQueryContract.View {
 
     @BindView(R.id.step_view)
     VerticalStepView mStepView;

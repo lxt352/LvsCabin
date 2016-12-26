@@ -7,7 +7,7 @@ import com.wiseme.lvscabin.view.CommonView;
  * lxt352@gmail.com
  */
 
-public interface ExpressQueryC {
+public interface ExpressQueryContract {
 
     interface View extends CommonView{
 

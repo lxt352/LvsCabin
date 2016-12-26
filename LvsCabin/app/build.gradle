@@ -60,4 +60,7 @@ dependencies {
     compile 'com.google.firebase:firebase-storage:9.6.1'
 
     compile 'com.github.baoyachi:StepView:1.8.1'
+
+    compile 'com.airbnb.android:epoxy:1.5.0'
+    apt 'com.airbnb.android:epoxy-processor:1.5.0'
 }
