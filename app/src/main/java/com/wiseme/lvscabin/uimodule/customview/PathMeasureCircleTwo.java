@@ -1,6 +1,5 @@
 package com.wiseme.lvscabin.uimodule.customview;
 
-import android.animation.TimeInterpolator;
 import android.animation.ValueAnimator;
 import android.animation.ValueAnimator.AnimatorUpdateListener;
 import android.content.Context;
@@ -10,20 +9,17 @@ import android.graphics.Paint.Style;
 import android.graphics.Path;
 import android.graphics.Path.Direction;
 import android.graphics.PathMeasure;
-import android.icu.util.Measure;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AccelerateInterpolator;
-import android.view.animation.LinearInterpolator;
 
 /**
  * @author lxt <lxt352@gmail.com>
  * @since 2017/9/7
  */
 
-public class PathMeasureCircleOne extends View {
+public class PathMeasureCircleTwo extends View {
 
     private Paint mPaint;
 
@@ -39,17 +35,17 @@ public class PathMeasureCircleOne extends View {
 
     private int mDesiredSize = 200;
 
-    public PathMeasureCircleOne(Context context) {
+    public PathMeasureCircleTwo(Context context) {
         super(context);
         init();
     }
 
-    public PathMeasureCircleOne(Context context, @Nullable AttributeSet attrs) {
+    public PathMeasureCircleTwo(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public PathMeasureCircleOne(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public PathMeasureCircleTwo(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
@@ -133,7 +129,8 @@ public class PathMeasureCircleOne extends View {
         mDrawPath.reset();
         mDrawPath.lineTo(0, 0);
         float endLength = mLength * mAnimatorValue;
-        mPathMeasure.getSegment(0, endLength, mDrawPath, true);
+        float startLength = (float) (endLength - ((0.5 - Math.abs(mAnimatorValue - 0.5)) * mLength));
+        mPathMeasure.getSegment(startLength, endLength, mDrawPath, true);
         canvas.drawPath(mDrawPath, mPaint);
     }
 }
