@@ -5,6 +5,10 @@
               android:gravity="center"
               android:orientation="vertical">
 
+    <com.wiseme.lvscabin.uimodule.customview.loading.LoadingView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
     <com.wiseme.lvscabin.uimodule.customview.PathMeasureCircleOne
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>

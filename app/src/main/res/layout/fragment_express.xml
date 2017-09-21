@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
 
-    <include layout="@layout/include_appbar" />
+    <include layout="@layout/include_appbar"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -17,7 +17,7 @@
             android:layout_height="@dimen/list_item_avatar"
             android:background="@drawable/shape_radius_rectangle_teal"
             android:paddingLeft="@dimen/spacing_normal"
-            android:textCursorDrawable="@drawable/shape_text_cursor_teal" />
+            android:textCursorDrawable="@drawable/shape_text_cursor_teal"/>
 
         <ImageView
             android:id="@+id/clear"
@@ -28,8 +28,7 @@
             android:layout_centerVertical="true"
             android:layout_marginEnd="@dimen/spacing_micro"
             android:layout_marginRight="@dimen/spacing_micro"
-            android:rotation="45"
-            android:src="@drawable/ic_vec_add_circle_white" />
+            android:rotation="45"/>
     </RelativeLayout>
 
     <Button
@@ -37,6 +36,6 @@
         style="@style/Widget.App.Button.Borderless.Colored.Teal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/action_query" />
+        android:text="@string/action_query"/>
 
 </LinearLayout>

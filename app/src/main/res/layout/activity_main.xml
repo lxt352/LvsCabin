@@ -11,12 +11,4 @@
         android:layout_height="0dp"
         android:layout_weight="1"/>
 
-    <com.roughike.bottombar.BottomBar
-        android:id="@+id/bottombar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        app:bb_inActiveTabAlpha="0.618"
-        app:bb_inActiveTabColor="@color/white"
-        app:bb_showShadow="false"
-        app:bb_tabXmlResource="@xml/bottombar_tabs" />
 </LinearLayout>

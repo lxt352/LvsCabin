@@ -25,9 +25,6 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.viewpager)
     ViewPager mViewPager;
 
-    @BindView(R.id.bottombar)
-    BottomBar mBottomBar;
-
     private List<BaseFragment> mFragmentList = new ArrayList<>();
 
     private OnTabSelectListener mOnTabSelectListener = new OnTabSelectListener() {
@@ -58,7 +55,6 @@ public class MainActivity extends BaseActivity {
         mFragmentList.add(new ExpressFragment());
 
         mViewPager.bindFragments(this, mFragmentList);
-        mBottomBar.setOnTabSelectListener(mOnTabSelectListener);
     }
 
     @Override
