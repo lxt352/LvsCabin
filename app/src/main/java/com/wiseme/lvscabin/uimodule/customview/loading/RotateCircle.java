@@ -17,7 +17,7 @@ public class RotateCircle extends BaseLoadingObject {
 
     private Circle eyeBound;
     private Circle[] sharingans;
-    private int numberOfSharingan;
+    private int numberOfSharingan =3 ;
     private float rotate;
     private float scale;
     private float eyeBoundRadiusScale = 3;
