@@ -26,6 +26,8 @@ public class BezierlLine extends View {
 
     private int mDesiredSize = 300;
 
+    private int mMeasureWidth, mMeasureHeight;
+
     public BezierlLine(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         mQuadPath = new Path();
@@ -39,16 +41,20 @@ public class BezierlLine extends View {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        int width = measureSize(mDesiredSize, widthMeasureSpec);
-        int height = measureSize(mDesiredSize, heightMeasureSpec);
-        setMeasuredDimension(width, height);
+        mMeasureWidth = measureSize(mDesiredSize, widthMeasureSpec);
+        mMeasureHeight = measureSize(mDesiredSize, heightMeasureSpec);
+        setMeasuredDimension(mMeasureWidth, mMeasureHeight);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        mQuadPath.quadTo(100, 0, 100, 100);
-        mQuadPath.rQuadTo(0, 200, 200, 200);
+        int x = mMeasureWidth / 3;
+        int y = mMeasureHeight / 3;
+        int x1 = x * 2;
+        int y1 = y * 2;
+        mQuadPath.quadTo(x, 0, x, y);
+        mQuadPath.rQuadTo(0, y1, x1, y1);
         canvas.drawPath(mQuadPath, mQuadPaint);
     }
 }
