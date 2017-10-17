@@ -10,6 +10,8 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
+import static com.wiseme.lvscabin.utils.LayoutUtils.measureSize;
+
 /**
  * @author lxt <lxt352@gmail.com>
  * @since 2017/9/8
@@ -61,6 +63,14 @@ public class PathEffectView extends View {
         p.lineTo(0.0f + height / 4.0f, 0.0f);
         p.close();
         return p;
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        int width = measureSize(1000, widthMeasureSpec);
+        int height = measureSize(500, heightMeasureSpec);
+        setMeasuredDimension(width, height);
     }
 
     @Override
