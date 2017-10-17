@@ -2,7 +2,11 @@ package com.wiseme.lvscabin.uimodule.customview;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.ComposePathEffect;
+import android.graphics.CornerPathEffect;
+import android.graphics.DiscretePathEffect;
 import android.graphics.Paint;
+import android.graphics.Paint.Style;
 import android.graphics.Path;
 import android.graphics.PathDashPathEffect;
 import android.graphics.PathEffect;
@@ -23,17 +27,37 @@ public class PathEffectView extends View {
 
     private Path mPath;
 
+    private Paint mCornerPaint;
+
+    private Path mCornerPath;
+
     public PathEffectView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        initPath();
+        initDashPathEffect();
+        initCornerPathEffect();
     }
 
-    public PathEffectView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        initPath();
+    private void initCornerPathEffect() {
+        mCornerPaint = new Paint();
+        mCornerPaint.setAntiAlias(true);
+        mCornerPaint.setStyle(Style.STROKE);
+        mCornerPaint.setStrokeWidth(2);
+        mCornerPath = new Path();
+        mCornerPath.moveTo(0, 200);
+        mCornerPath.lineTo(300, 500);
+        mCornerPath.lineTo(450, 100);
+        mCornerPath.lineTo(600, 400);
+        mCornerPath.lineTo(800, 150);
+        //拐角圆弧effect
+        CornerPathEffect effect = new CornerPathEffect(20);
+        // 偏离effect
+        DiscretePathEffect effect1 = new DiscretePathEffect(10,5);
+        // 组合effect
+        ComposePathEffect composePathEffect = new ComposePathEffect(effect,effect1);
+        mCornerPaint.setPathEffect(composePathEffect);
     }
 
-    private void initPath() {
+    private void initDashPathEffect() {
 
         // Create a straight line
         mPath = new Path();
@@ -77,5 +101,6 @@ public class PathEffectView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         canvas.drawPath(mPath, mPaint);
+        canvas.drawPath(mCornerPath, mCornerPaint);
     }
 }
