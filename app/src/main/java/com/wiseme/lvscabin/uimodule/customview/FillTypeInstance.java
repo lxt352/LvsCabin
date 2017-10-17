@@ -20,7 +20,7 @@ import static com.wiseme.lvscabin.utils.LayoutUtils.measureSize;
 
 public class FillTypeInstance extends View {
 
-    private int desiredSize = 1000;
+    private int desiredSize = 520;
 
     private Path path;
 
