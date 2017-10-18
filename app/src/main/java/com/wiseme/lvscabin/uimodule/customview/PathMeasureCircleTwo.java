@@ -14,6 +14,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 
+import static com.wiseme.lvscabin.utils.LayoutUtils.measureSize;
+
 /**
  * @author lxt <lxt352@gmail.com>
  * @since 2017/9/7
@@ -35,18 +37,8 @@ public class PathMeasureCircleTwo extends View {
 
     private int mDesiredSize = 200;
 
-    public PathMeasureCircleTwo(Context context) {
-        super(context);
-        init();
-    }
-
     public PathMeasureCircleTwo(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        init();
-    }
-
-    public PathMeasureCircleTwo(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
         init();
     }
 
@@ -88,38 +80,8 @@ public class PathMeasureCircleTwo extends View {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-
-        int widthMode = MeasureSpec.getMode(widthMeasureSpec);
-        int widthSize = MeasureSpec.getSize(widthMeasureSpec);
-        int heightMode = MeasureSpec.getMode(heightMeasureSpec);
-        int heightSize = MeasureSpec.getSize(heightMeasureSpec);
-
-        int width;
-        int height;
-
-        //Measure Width
-        if (widthMode == MeasureSpec.EXACTLY) {
-            //Must be this size
-            width = widthSize;
-        } else if (widthMode == MeasureSpec.AT_MOST) {
-            //Can't be bigger than...
-            width = Math.min(mDesiredSize, widthSize);
-        } else {
-            //Be whatever you want
-            width = mDesiredSize;
-        }
-
-        //Measure Height
-        if (heightMode == MeasureSpec.EXACTLY) {
-            //Must be this size
-            height = heightSize;
-        } else if (heightMode == MeasureSpec.AT_MOST) {
-            //Can't be bigger than...
-            height = Math.min(mDesiredSize, heightSize);
-        } else {
-            //Be whatever you want
-            height = mDesiredSize;
-        }
+        int width = measureSize(mDesiredSize, widthMeasureSpec);
+        int height = measureSize(mDesiredSize, heightMeasureSpec);
         setMeasuredDimension(width, height);
     }
 
