@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 //apply plugin: 'android-apt'
 apply plugin: 'com.google.gms.google-services'
+apply from: "dependency.gradle"
 
 android {
     compileSdkVersion 24
@@ -35,26 +36,17 @@ dependencies {
     compile 'com.android.support:appcompat-v7:24.2.1'
     compile 'com.android.support:design:24.2.1'
 
-    compile 'com.roughike:bottom-bar:2.0.2'
-    compile 'com.jakewharton:butterknife:8.4.0'
-    compile 'com.dodola:listviewext:1.0'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
-
     compile 'com.google.code.gson:gson:2.4'
 
     /**
      * when I used retrofit 2.1.0,it ran in exception
      * because the version of logging-interceptor is corresponding to retrofit version no more than 2.0.2
      */
-    compile 'com.squareup.retrofit2:retrofit:2.0.2'
-    compile 'com.squareup.retrofit2:converter-gson:2.0.2'
-    compile 'com.squareup.okhttp3:logging-interceptor:3.2.0'
+
     /**
      * 依赖注入dagger库
      */
-    compile 'com.google.dagger:dagger:2.0.2'
-    annotationProcessor 'com.google.dagger:dagger-compiler:2.0.2'
-    provided 'javax.annotation:jsr250-api:1.0'
+
     /**
      * firebase
      */
