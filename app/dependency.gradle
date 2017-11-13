@@ -16,7 +16,6 @@ def injectDependency(Closure closure) {
 }
 
 def butterKnife = injectDependency{
-    implementation 'com.roughike:bottom-bar:2.0.2'
     implementation 'com.jakewharton:butterknife:8.4.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
 }

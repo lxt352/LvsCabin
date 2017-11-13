@@ -43,6 +43,7 @@ dependencies {
      * because the version of logging-interceptor is corresponding to retrofit version no more than 2.0.2
      */
     implementation 'com.dodola:listviewext:1.0'
+    implementation 'com.roughike:bottom-bar:2.0.2'
 
     /**
      * 依赖注入dagger库
