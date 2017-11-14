@@ -9,10 +9,7 @@ import android.view.ViewOutlineProvider
  * @author lxt <lxt352@gmail.com>
  * @since 2017/11/14.
  */
-class OutlineProvider(private val rect: Rect = Rect(),
-                      var scaleX: Float,
-                      var scaleY: Float,
-                      var yShift: Int) : ViewOutlineProvider() {
+class OutlineProvider(val rect: Rect, var scaleX: Float, var scaleY: Float, var yShift: Int) : ViewOutlineProvider() {
 
     override fun getOutline(view: View?, outline: Outline?) {
     }
