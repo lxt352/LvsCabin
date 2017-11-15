@@ -1,7 +1,17 @@
-def dagger(){
-    dependencies.add("implementation","com.google.dagger:dagger:2.0.2")
-    dependencies.add("annotationProcessor","com.google.dagger:dagger-compiler:2.0.2")
-    dependencies.add("provided","javax.annotation:jsr250-api:1.0")
+ext {
+    sourceCompatibility = JavaVersion.VERSION_1_7
+    targetCompatibility = JavaVersion.VERSION_1_7
+    versions = [
+            infuserVersion: '1.0.0',
+            supportVersion: '26.+',
+            daggerVersion : '2.0.2'
+    ]
+}
+
+def dagger() {
+    dependencies.add("implementation", "com.google.dagger:dagger:2.0.2")
+    dependencies.add("annotationProcessor", "com.google.dagger:dagger-compiler:2.0.2")
+    dependencies.add("provided", "javax.annotation:jsr250-api:1.0")
 }
 
 def retrofit() {
@@ -15,7 +25,7 @@ def injectDependency(Closure closure) {
     return closure
 }
 
-def butterKnife = injectDependency{
+def butterKnife = injectDependency {
     implementation 'com.jakewharton:butterknife:8.4.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
 }
