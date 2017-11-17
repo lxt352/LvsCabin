@@ -7,9 +7,26 @@ import android.util.Log
  * @since 2017/11/14.
  */
 class Math {
+    var desiredScaleX: Int? = null
+        get() {
+            return field
+        }
+        set(value) {
+            value?.let {
+                this.desiredScaleX = 1
+                field = value
+            }
+        }
+
     fun print() {
         primeFactorization(10)
     }
+}
+
+class English {
+
+    var subject: String? = null
+
 }
 
 fun Math.primeFactorization(number: Int) {
