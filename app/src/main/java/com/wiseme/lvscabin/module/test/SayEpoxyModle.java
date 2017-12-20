@@ -1,6 +1,5 @@
 package com.wiseme.lvscabin.module.test;
 
-import com.airbnb.epoxy.EpoxyAttribute;
 import com.airbnb.epoxy.EpoxyModelWithHolder;
 import com.wiseme.lvscabin.R;
 import com.wiseme.lvscabin.vo.ExpressInfo;
